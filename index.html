@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Digital Login & Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Digital animated background -->
+    <div id="background" class="background"></div>
+
+    <!-- Login Box -->
+    <div id="login-box" class="login-box">
+        <h1>SECURE ACCESS</h1>
+
+        <input type="text" id="username" placeholder="Username">
+        <input type="tel" id="password" placeholder="Password">
+
+        <button onclick="login()">LOGIN</button>
+
+        <p class="forgot" onclick="forgotPassword()">Forgot Password?</p>
+    </div>
+
+    <!-- Dashboard / Multi-Section -->
+    <div id="dashboard" class="hidden">
+        <h1>DIGITAL DASHBOARD</h1>
+
+        <!-- Tabs / pseudo-pages -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab('network')">NETWORK</button>
+            <button class="tab-btn" onclick="openTab('data')">DATA</button>
+            <button class="tab-btn" onclick="openTab('security')">SECURITY</button>
+            <button class="tab-btn" onclick="openTab('ai')">AI CONTROL</button>
+        </div>
+
+        <!-- Tab Contents -->
+        <div class="tab-content" id="network">
+            <h2>Network Status</h2>
+            <p>All network nodes are online. Latency is minimal. Data packets are flowing smoothly across all nodes.</p>
+            <p>Monitoring network traffic for anomalies. All firewalls are active and functioning properly.</p>
+        </div>
+
+        <div class="tab-content hidden" id="data">
+            <h2>Data Analytics</h2>
+            <p>Real-time analytics show active connections and data flow. Reports generated every 5 minutes.</p>
+            <p>Data dashboard shows key metrics for performance, usage, and predictive analysis.</p>
+        </div>
+
+        <div class="tab-content hidden" id="security">
+            <h2>Security Control</h2>
+            <p>Security modules are active. Threat detection AI is monitoring all inputs.</p>
+            <p>Encrypted logs are being maintained. Alerts will trigger on suspicious activity.</p>
+        </div>
+
+        <div class="tab-content hidden" id="ai">
+            <h2>AI Control Modules</h2>
+            <p>AI predictive analysis running. Automated responses are active.</p>
+            <p>AI modules provide insights, alerts, and optimization recommendations in real time.</p>
+        </div>
+
+    </div>
+
+    <script>
+        function login() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            if(username === "" || password === "") {
+                alert("Please enter Username and Password");
+                return;
+            }
+
+            // Hide background and login box
+            document.getElementById("background").style.display = "none";
+            document.getElementById("login-box").style.display = "none";
+
+            // Show dashboard
+            document.getElementById("dashboard").classList.remove("hidden");
+        }
+
+        function forgotPassword() {
+            alert("Password reset option is currently unavailable.");
+        }
+
+        // Tab functionality
+        function openTab(tabId) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(c => c.classList.add('hidden'));
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+
+            // Show selected tab
+            document.getElementById(tabId).classList.remove('hidden');
+            document.querySelector(`[onclick="openTab('${tabId}')"]`).classList.add('active');
+        }
+    </script>
+
+</body>
+</html>

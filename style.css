@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Animated Digital Background */
+body {
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #000000);
+    background-size: 400% 400%;
+    animation: gradientMove 10s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Moving gradient animation */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Floating glowing particles */
+.background::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background-image: radial-gradient(circle, rgba(0,255,255,0.2) 2px, transparent 2px);
+    background-size: 50px 50px;
+    animation: moveParticles 20s linear infinite;
+}
+
+@keyframes moveParticles {
+    from { transform: translate(0, 0); }
+    to { transform: translate(-200px, -200px); }
+}
+
+/* Glass Login Box */
+.login-box {
+    position: relative;
+    padding: 40px;
+    width: 320px;
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0,255,255,0.4);
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(0,255,255,0.5);
+}
+
+.login-box h1 {
+    color: cyan;
+    margin-bottom: 25px;
+    text-shadow: 0 0 15px cyan;
+}
+.forgot {
+    margin-top: 15px;
+    font-size: 14px;
+    color: cyan;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.forgot:hover {
+    text-shadow: 0 0 10px cyan;
+    opacity: 1;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    background: transparent;
+    border: 1px solid cyan;
+    color: white;
+    border-radius: 8px;
+}
+.dashboard-text {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 15px;
+    color: cyan;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.dashboard-text p {
+    margin-bottom: 15px;
+}
+
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 10px cyan;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background: transparent;
+    border: 2px solid cyan;
+    color: cyan;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: cyan;
+    color: black;
+    box-shadow: 0 0 20px cyan;
+}
+.forgot {
+    margin-top: 15px;
+    font-size: 14px;
+    color: cyan;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.forgot:hover {
+    text-shadow: 0 0 10px cyan;
+    opacity: 1;
+}
+.hidden {
+    display: none;
+}
+/* Tabs */
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    border: 2px solid cyan;
+    background: transparent;
+    color: cyan;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tab-btn:hover {
+    background: cyan;
+    color: black;
+    box-shadow: 0 0 20px cyan;
+}
+
+.tab-btn.active {
+    background: cyan;
+    color: black;
+    box-shadow: 0 0 25px cyan;
+}
+
+/* Tab content sections */
+.tab-content {
+    margin: 30px auto;
+    width: 80%;
+    background: rgba(0,0,0,0.2);
+    padding: 20px;
+    border-radius: 15px;
+    color: cyan;
+    line-height: 1.6;
+}
+
+.tab-content.hidden {
+    display: none;
+}
+
+.tab-content h2 {
+    margin-bottom: 15px;
+}
